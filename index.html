@@ -9,7 +9,28 @@
 </head>
 
 <body onload="onInit()">
+    <div>
+        <span onclick="restartGame()" class="smilyy-btn"></span>
+    </div>
+
+    <div class="extras">
+        <div class="lives"></div>
+        <div class="hints"></div>
+    </div>
+
+    <div class="difficulty">
+        <button onclick="changeDifficulty(4,2)">easy</button>
+        <button onclick="changeDifficulty(8,14)">medium</button>
+        <button onclick="changeDifficulty(12,32)">hard</button>
+    </div>
+
+
     <div class="board-container"></div>
+
+    <div class="end-game">
+        <span class="end-text"></span>
+        <br><button onclick="restartGame()">Play Again?</button>
+    </div>
 
     <script src="js/game.js"></script>
     <script src="js/utils.js"></script>

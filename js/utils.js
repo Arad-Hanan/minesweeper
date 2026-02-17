@@ -36,7 +36,6 @@ function buildBoard() {
     }
     // board[2][2].isMine = true
     // board[3][3].isMine = true
-
     setMinesNegsCount(board)
 
     return board
@@ -120,10 +119,27 @@ function expandReveal(board, row, col) {
 
             var currCell = board[i][j]
 
-            if (!currCell.isMine && !currCell.isRevealed) {
+            if (!currCell.isMine && !currCell.isRevealed && !currCell.isMarked) {
                 currCell.isRevealed = true
                 gGame.revealedCount++
+                
+                if(currCell.minesAroundCount === 0){
+                    expandReveal(board, i, j)
+                }
             }
         }
     }
 } 
+
+function revealNegs(board, row, col, isReveal){
+    for (var i = row - 1; i <= row + 1; i++) {
+        for (var j = col - 1; j <= col + 1; j++) {
+            if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) continue
+            if(isReveal){
+                board[i][j].isRevealed = true
+            } else {
+                board[i][j].isRevealed = false
+            }
+        }
+    }
+}
