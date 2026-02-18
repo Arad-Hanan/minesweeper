@@ -10,18 +10,27 @@
 
 <body onload="onInit()">
     <div>
-        <span onclick="restartGame()" class="smilyy-btn"></span>
+        <div class="timer">000</div>
+        <span onclick="onInit()" class="smilyy-btn"></span>
     </div>
 
     <div class="extras">
-        <div class="lives"></div>
-        <div class="hints"></div>
+        <div class="stats-container">
+            <div class="lives"></div>
+            <div class="hints"></div>
+            <div class="safe-clicks"></div>
+        </div>
+        
+        <div class="controls-container">
+            <button onclick="onUndo()" class="undo-btn">↩️ Undo</button>
+            <button onclick="onToggleDarkMode()" class="dark-mode-btn">🌙 Dark Mode</button>
+        </div>
     </div>
 
     <div class="difficulty">
-        <button onclick="changeDifficulty(4,2)">easy</button>
-        <button onclick="changeDifficulty(8,14)">medium</button>
-        <button onclick="changeDifficulty(12,32)">hard</button>
+        <button onclick="onChangeDifficulty(4,2)">easy</button>
+        <button onclick="onChangeDifficulty(8,14)">medium</button>
+        <button onclick="onChangeDifficulty(12,32)">hard</button>
     </div>
 
 
@@ -29,10 +38,11 @@
 
     <div class="end-game">
         <span class="end-text"></span>
-        <br><button onclick="restartGame()">Play Again?</button>
+        <br><button onclick="onInit()">Play Again?</button>
     </div>
 
     <script src="js/game.js"></script>
+    <script src="js/rendering.js"></script>
     <script src="js/utils.js"></script>
 </body>
 
